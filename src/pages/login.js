@@ -9,6 +9,7 @@ class LoginPage extends Component {
 	login = (e) => {
 		e.preventDefault()
 		this.props.onLogin(this.state)
+		this.props.history.push('/room')
 	}
 
 	handleInputChange = (e, key) => {
