@@ -1,9 +1,10 @@
 import { Component } from 'react'
+import SignupPage from './pages/signup'
 
 class App extends Component {
 	render() {
 		return (
-			<h1>HelloWorld</h1>
+			<SignupPage />
 		)
 	}
 }
