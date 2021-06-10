@@ -3,18 +3,18 @@ import { Component } from 'react'
 class LoginPage extends Component {
 	constructor(props) {
 		super(props)
-		this.state = { username: '', email: '' }
+		this.state = { username: '' }
 	}
 
 	login = (e) => {
 		e.preventDefault()
-		this.props.onLogin(this.state)
+		this.props.onLogin(this.state.username)
 		this.props.history.push('/room')
 	}
 
-	handleInputChange = (e, key) => {
+	handleInputChange = (e) => {
 		const value = e.target.value
-		this.setState({ [key]: value })
+		this.setState({ username: value })
 	}
 
 	render() {
@@ -27,10 +27,7 @@ class LoginPage extends Component {
 					<h2 className="mb-5">H Chatroom</h2>
 					<form>
 						<label htmlFor="Username">Username:</label>
-						<input type="text" className="form-control mb-2" onChange={ (e) => this.handleInputChange(e, 'username') } />
-
-						<label htmlFor="Email">Email:</label>
-						<input type="text" className="form-control" onChange={ (e) => this.handleInputChange(e, 'email') } />
+						<input type="text" className="form-control mb-2" onChange={ this.handleInputChange } />
 
 						<input
 							type="submit"

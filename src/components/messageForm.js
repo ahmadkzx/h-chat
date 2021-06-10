@@ -13,14 +13,21 @@ class MessageForm extends Component {
 
 	sendMessage = (e) => {
 		e.preventDefault()
-		console.log(this.state.message)
+		this.props.onSend(this.state.message)
+		this.setState({ message: '' })
 	}
 
 	render() {
 		return (
 			<div style={{ height: '10vh', width: '100%' }}>
 				<form className="d-flex justify-content-between align-items-center" onSubmit={ this.sendMessage }>
-					<input type="text" placeholder="Type message..." className="form-control" onChange={ this.handleChangeMessage } />
+					<input
+						type="text"
+						className="form-control"
+						value={ this.state.message }
+						placeholder="Type message..."
+						onChange={ this.handleChangeMessage }
+					/>
 					<input type="submit" value="Send" className="btn btn-primary ml-2" />
 				</form>
 			</div>

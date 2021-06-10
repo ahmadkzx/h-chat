@@ -6,25 +6,23 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 class App extends Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-			user: {}
-		}
+		this.state = { username: '' }
 	}
 
 	/**
-   * set user data after login
-   * @param {Object} payload - { username, email }
+   * set username after login
+   * @param {String} username
    */
-	setUserDataToState = (payload) => {
-		this.setState({ user: payload })
+	setUsernameToState = username => {
+		this.setState( { username })
 	}
 
 	render() {
 		return (
 			<div className="app">
 				<Router>
-					<Route exact path="/" component={ (e) => <LoginPage onLogin={ this.setUserDataToState } { ...e } /> } />
-					<Route path="/room" component={ RoomPage } />
+					<Route exact path="/" component={ (e) => <LoginPage onLogin={ this.setUsernameToState } { ...e } /> } />
+					<Route path="/room" component={ () => <RoomPage username={ this.state.username } /> } />
 				</Router>
 			</div>
 		)
