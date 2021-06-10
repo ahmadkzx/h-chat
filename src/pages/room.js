@@ -15,7 +15,10 @@ class RoomPage extends Component {
 
 	componentDidMount = async () => {
 		try {
-			if (!this.props.username) this.props.history.push('/'); return
+			if (!this.props.username) {
+				this.props.history.push('/')
+				return
+			}
 
 			await this.setState({ socket: io('http://localhost:8080') }) 
 
