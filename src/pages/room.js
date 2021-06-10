@@ -10,7 +10,7 @@ class RoomPage extends Component {
 					style={{ height: '100vh' }}
 					className="d-flex flex-column align-items-center justify-content-center"
 				>
-					<div className="messages" style={{ height: '90vh' }}>
+					<div className="messages w-100 my-4" style={{ height: '90vh', overflowY: 'auto' }}>
 						<MessageItem username={ 'Ahmad' } message={ 'How are you today?' } />
 					</div>
 					<MessageForm />
