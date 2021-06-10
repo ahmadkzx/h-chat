@@ -13,6 +13,11 @@ class RoomPage extends Component {
 		}
 	}
 
+	/**
+   * check is have username
+   * connect to socket
+	 * set chat new message event listener
+   */
 	componentDidMount = async () => {
 		try {
 			if (!this.props.username) {
@@ -29,12 +34,20 @@ class RoomPage extends Component {
 		}
 	}
 
+	/**
+   * send message to socket
+   * @param {String} message
+   */
 	sendMessage = message => {
 		const username = this.props.username
 		const payload = JSON.stringify({ message, username })
 		this.state.socket.emit('CHAT_SEND_MESSAGE', payload)
 	}
 
+	/**
+   * receive new message and push to message array
+   * @param {Object} payload { message, username }
+   */
 	handleNewMessage = payload => {
 		const messages = this.state.messages
 		const newMessageObj = JSON.parse(payload)

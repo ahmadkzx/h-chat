@@ -6,6 +6,9 @@ class LoginPage extends Component {
 		this.state = { username: '' }
 	}
 
+	/**
+   * emit username and then go to room page
+   */
 	login = (e) => {
 		e.preventDefault()
 		this.props.onLogin(this.state.username)
