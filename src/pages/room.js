@@ -15,6 +15,8 @@ class RoomPage extends Component {
 
 	componentDidMount = async () => {
 		try {
+			if (!this.props.username) this.props.history.push('/'); return
+
 			await this.setState({ socket: io('http://localhost:8080') }) 
 
 			this.state.socket.on('CHAT_NEW_MESSAGE', message => this.handleNewMessage(message))

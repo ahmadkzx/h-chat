@@ -22,7 +22,7 @@ class App extends Component {
 			<div className="app">
 				<Router>
 					<Route exact path="/" component={ (e) => <LoginPage onLogin={ this.setUsernameToState } { ...e } /> } />
-					<Route path="/room" component={ () => <RoomPage username={ this.state.username } /> } />
+					<Route path="/room" component={ (e) => <RoomPage username={ this.state.username } { ...e } /> } />
 				</Router>
 			</div>
 		)
